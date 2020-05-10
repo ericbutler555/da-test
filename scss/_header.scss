@@ -1,0 +1,58 @@
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1.2rem;
+  background: $white;
+  box-shadow: 0 0 6px 0 $default-shadow-color;
+
+  @media ($phone-wide) {
+    justify-content: space-around;
+  }
+
+  @media ($phablet) {
+    justify-content: center;
+    padding: 2rem 4rem 1.2rem;
+  }
+
+  @media ($tablet) {
+    flex-wrap: nowrap;
+    padding: 3rem 2rem 2rem;
+  }
+
+  @media ($tablet-wide) {
+    flex: 0 0 auto;
+    z-index: 1; // required for drop-shadow to display atop contact form
+  }
+}
+
+.avatar-container {
+  width: 14rem;
+  height: 14rem;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 0.4rem solid $blue;
+  background: $light-gray;
+
+  @media ($phablet) {
+    margin-right: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.header-content-container {
+  flex: 1 0 100%;
+
+  @media ($tablet) {
+    flex: 0 1 auto;
+
+    h1 {
+      font-size: 4.8rem;
+    }
+  }
+}

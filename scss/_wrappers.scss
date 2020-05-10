@@ -1,0 +1,14 @@
+// flex layout once screen width is wide enough
+@media ($tablet-wide) {
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #main {
+    display: flex;
+    flex: 1 0 auto;
+  }
+}

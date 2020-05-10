@@ -1,0 +1,70 @@
+.social-media-icons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+  box-shadow: 0 -2px 4px 0 $default-shadow-color;
+
+  li {
+    flex: 1 1 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 1.2rem;
+    }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: $white;
+    }
+  }
+
+  // on tablet, change the icons layout completely
+  @media ($tablet) {
+    position: static;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+
+    li {
+      flex: 0 0 auto;
+      margin-right: 1rem;
+
+      a {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+      }
+
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+}
+
+body {
+  padding-bottom: 5rem; // match height of .social-media-icons
+
+  @media ($tablet) {
+    padding-bottom: 0; // remove once icons aren't fixed to bottom
+  }
+}
+
+.facebook-icon  { background: $facebook-color; }
+.twitter-icon   { background: $twitter-color; }
+.instagram-icon { background: $instagram-color; }

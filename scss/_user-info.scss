@@ -1,0 +1,85 @@
+.user-info-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+
+  @media ($phablet) {
+    padding: 2rem 4rem 3rem;
+  }
+
+  @media ($tablet-wide) {
+    flex: 0 0 60%;
+  }
+
+  @media ($laptop) {
+    flex-basis: 50%;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-icon {
+    display: none; // hide on mobile
+
+    @media ($tablet) {
+      display: flex;
+      width: 4rem;
+      height: 4rem;
+      flex: 0 0 4rem;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+}
+
+.user-info-block {
+  display: none; // hide inactive blocks on mobile
+  margin: 0;
+  padding: 0;
+
+  @media ($tablet) {
+    display: flex !important; // show all on non-mobile
+    align-items: flex-start;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  &.is-active {
+    display: block;
+  }
+
+  h2 {
+    font-size: 1.25em;
+    margin-bottom: 0.5rem;
+
+    @media ($tablet) {
+      flex: 0 0 35%;
+      padding: 0.5rem 2rem;
+      font-size: 1.1em;
+      line-height: 1.2;
+    }
+  }
+
+  .info-content {
+    flex: 1 1 auto;
+    padding: 0.5rem 0 0;
+  }
+}
+
+.login-password {
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.25em;
+    vertical-align: middle;
+    fill: $blue;
+    cursor: pointer;
+  }
+}

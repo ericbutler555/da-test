@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Eric Butler | Doe-Anderson Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="robots" content="noindex,follow">
+  <meta name="author" content="Eric Butler">
+  <meta name="description" content="Front-end development test for Doe-Anderson Advertising">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <header class="page-header">
+
+      <div class="avatar-container">
+        <img :src="user.picture" :alt="user.name">
+      </div>
+
+      <nav class="user-info-tabs">
+        <ul>
+          <li>
+            <div class="info-icon bio-icon" :class="{ 'is-active': (activeInfoTab === 'bio') }" @click="displayInfoBlock('bio')">
+              <svg>
+                <use xlink:href="img/icons.svg#address-book"></use>
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon location-icon" :class="{ 'is-active': (activeInfoTab === 'location') }" @click="displayInfoBlock('location')">
+              <svg>
+                <use xlink:href="img/icons.svg#map"></use>
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon email-icon" :class="{ 'is-active': (activeInfoTab === 'email') }" @click="displayInfoBlock('email')">
+              <svg>
+                <use xlink:href="img/icons.svg#envelope"></use>
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon phone-icon" :class="{ 'is-active': (activeInfoTab === 'phone') }" @click="displayInfoBlock('phone')">
+              <svg>
+                <use xlink:href="img/icons.svg#phone-alt"></use>
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon birthday-icon" :class="{ 'is-active': (activeInfoTab === 'birthday') }" @click="displayInfoBlock('birthday')">
+              <svg>
+                <use xlink:href="img/icons.svg#birthday-cake"></use>
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon login-icon" :class="{ 'is-active': (activeInfoTab === 'login') }" @click="displayInfoBlock('login')">
+              <svg>
+                <use xlink:href="img/icons.svg#key"></use>
+              </svg>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-content-container">
+
+        <h1>{{ user.name }}</h1>
+
+        <ul class="social-media-icons">
+          <li>
+            <a class="facebook-icon" href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook profile">
+              <svg>
+                <use xlink:href="img/icons.svg#facebook-f"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="twitter-icon" href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter profile">
+              <svg>
+                <use xlink:href="img/icons.svg#twitter"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="instagram-icon" href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram profile">
+              <svg>
+                <use xlink:href="img/icons.svg#instagram"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </header>
+
+    <main role="main" id="main">
+
+      <section class="user-info-container">
+        <ul>
+          <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'bio') }">
+            <div class="info-icon bio-icon">
+              <svg>
+                <use xlink:href="img/icons.svg#address-book"></use>
+              </svg>
+            </div>
+            <h2 class="bio-color">Bio</h2>
+            <div class="info-content">
+              <p>{{ user.bio }}</p>
+            </div>
+          </li>
+          <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'location') }">
+            <div class="info-icon location-icon">
+              <svg>
+                <use xlink:href="img/icons.svg#map"></use>
+              </svg>
+            </div>
+            <h2 class="location-color">Location</h2>
+            <div class="info-content">
+              <address>
+                {{ user.streetAddress }}<br>
+                {{ user.city }}, {{ user.state }} {{ user.postcode }}<br>
+                {{ user.country }}
+              </address>
+            </div>
+          </li>
+          <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'email') }">
+            <div class="info-icon email-icon">
+              <svg>
+                <use xlink:href="img/icons.svg#envelope"></use>
+              </svg>
+            </div>
+            <h2 class="email-color">Email address</h2>
+            <div class="info-content">
+              <p><a href="mailto:">{{ user.email }}</a></p>
+            </div>
+          </li>
+          <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'phone') }">
+            <div class="info-icon phone-icon">
+              <svg>
+                <use xlink:href="img/icons.svg#phone-alt"></use>
+              </svg>
+            </div>
+            <h2 class="phone-color">Phone number</h2>
+            <div class="info-content">
+              <p>
+                Primary: {{ user.phone }}<br>
+                Cell: {{ user.cellPhone }}
+              </p>
+            </div>
+          </li>
+          <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'birthday') }">
+            <div class="info-icon birthday-icon">
+              <svg>
+                <use xlink:href="img/icons.svg#birthday-cake"></use>
+              </svg>
+            </div>
+            <h2 class="birthday-color">Birthday</h2>
+            <div class="info-content">
+              <p>
+                {{ user.birthday }}<br>
+                {{ user.age }} years old
+              </p>
+            </div>
+          </li>
+          <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'login') }">
+            <div class="info-icon login-icon">
+              <svg>
+                <use xlink:href="img/icons.svg#key"></use>
+              </svg>
+            </div>
+            <h2 class="login-color">Login info</h2>
+            <div class="info-content">
+              <p>
+                Username: {{ user.username }}<br>
+                Password:
+                <span class="login-password password-showing" v-if="passwordVisible">
+                  <svg @click="togglePassword">
+                    <use xlink:href="img/icons.svg#eye-slash"></use>
+                  </svg>
+                  {{ user.password }}
+                </span>
+                <span class="login-password password-hidden" v-else>
+                  <svg @click="togglePassword">
+                    <use xlink:href="img/icons.svg#eye"></use>
+                  </svg>
+                  &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
+                </span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="contact-form-container">
+        <div v-if="!formSubmitted">
+          <div class="contact-form-heading">
+            <h2>Contact me</h2>
+            <p>All fields are required</p>
+          </div>
+          <div class="contact-form-body">
+            <form @submit="validateForm" method="post" id="contactForm" novalidate>
+              <div class="form-field" :class="{ 'has-error': formErrors.name }">
+                <label for="contactName">Your name</label>
+                <input v-model.trim="contactName" type="text" name="contactName" id="contactName" placeholder="First and last name">
+                <p class="validation-message">Please provide your name</p>
+              </div>
+              <div class="form-field" :class="{ 'has-error': formErrors.email }">
+                <label for="contactEmail">Email address</label>
+                <input v-model.trim="contactEmail" type="email" name="contactEmail" id="contactEmail" placeholder="you@example.com">
+                <p class="validation-message">Please provide a valid email address</p>
+              </div>
+              <div class="form-field" :class="{ 'has-error': formErrors.message }">
+                <label for="contactMessage">How can I help?</label>
+                <textarea v-model.trim="contactMessage" name="contactMessage" id="contactMessage" placeholder="Add your message here"></textarea>
+                <p class="validation-message">You forgot to say anything</p>
+              </div>
+              <div class="form-field">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div v-if="formSubmitted" class="contact-form-success">
+          <h3>Message sent!</h3>
+          <p>Thank you for contacting me</p>
+        </div>
+      </aside>
+
+    </main>
+
+    <aside class="modal-overlay" tabindex="-1" role="dialog" aria-labelledby="dialogTitle" aria-describedby="dialogDesc" v-if="apiErrorMessage !== ''">
+      <div class="modal-content">
+        <h2 id="dialogTitle">Error</h2>
+        <p id="dialogDesc">Sorry, there was an issue getting the user&rsquo;s data. Please <strong>refresh the page</strong> to try again.</p>
+        <p>{{ apiErrorMessage }}</p>
+      </div>
+    </aside>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+.user-info-tabs {
+  flex: 0 1 12rem;
+  margin-bottom: 1rem;
+
+  @media ($phone-wide) {
+    flex-basis: 14rem;
+  }
+
+  @media ($phablet) {
+    flex-basis: 20rem;
+  }
+
+  @media ($tablet) {
+    display: none !important; // only for mobile display
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  li {
+    flex: 1 1 50%;
+    padding: 0.5rem;
+
+    @media ($phablet) {
+      flex-basis: 33.3333%;
+      padding: 1rem 0.5rem;
+    }
+  }
+}
+
+.info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover,
+  &:focus {
+    transform: rotate(15deg);
+  }
+
+  &.is-active {
+    transform: scale(0.9) rotate(15deg);
+    box-shadow: 0 2px 4px 0 $default-shadow-color;
+  }
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: $white;
+  }
+}
+
+.bio-icon { background-color: $bio-color; }
+.location-icon { background-color: $location-color; }
+.email-icon { background-color: $email-color; }
+.phone-icon { background-color: $phone-color; }
+.birthday-icon { background-color: $birthday-color; }
+.login-icon { background-color: $login-color; }

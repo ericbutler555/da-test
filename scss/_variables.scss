@@ -1,0 +1,51 @@
+// fonts
+
+$sans: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+$text-font: "Inter", $sans;
+
+// colors
+
+$navy: #001f3f;
+$blue: #0074d9;
+$aqua: #7fdbff;
+$teal: #39cccc;
+$olive: #3d9970;
+$green: #2ecc40;
+$lime: #01ff70;
+$yellow: #ffdc00;
+$orange: #ff851b;
+$red: #ff4136;
+$maroon: #85144b;
+$fuchsia: #f012be;
+$purple: #b10dc9;
+
+$black: #111111;
+$white: #fff;
+$light-gray: #eee;
+
+$text-color: $black;
+
+$default-shadow-color: rgba(black, 0.2);
+
+// info icon colors
+
+$bio-color: $teal;
+$location-color: $olive;
+$email-color: $orange;
+$phone-color: $maroon;
+$birthday-color: $purple;
+$login-color: $navy;
+
+// social colors
+
+$facebook-color: #4167b1;
+$twitter-color: #1da1f3;
+$instagram-color: #f00075;
+
+// breakpoints
+
+$phone-wide:  "min-width:  350px";
+$phablet:     "min-width:  500px";
+$tablet:      "min-width:  700px";
+$tablet-wide: "min-width: 1000px";
+$laptop:      "min-width: 1300px";

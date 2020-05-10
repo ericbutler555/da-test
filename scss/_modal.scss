@@ -1,0 +1,28 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; // stay atop everything
+  overflow: auto;
+  padding: 1rem;
+  background: rgba(black, 0.8);
+  text-align: center;
+}
+.modal-content {
+  max-width: 40rem;
+  margin: 5vw auto 1rem;
+  padding: 3rem 2rem;
+  border-radius: 0.4rem;
+  background: $white;
+  text-align: left;
+
+  h2 {
+    color: $red;
+  }
+
+  p {
+    margin-top: 1em;
+  }
+}

@@ -1,0 +1,114 @@
+.contact-form-container {
+  background: $yellow;
+  padding: 2rem;
+  box-shadow: 0 0 4px 0 $default-shadow-color;
+
+  @media ($phablet) {
+    padding: 2rem 4rem;
+  }
+
+  @media ($tablet) {
+    padding: 4rem 4rem 5rem;
+  }
+
+  @media ($tablet-wide) {
+    flex: 0 0 40%;
+  }
+
+  @media ($laptop) {
+    flex-basis: 50%;
+  }
+}
+
+.contact-form-heading {
+  padding-bottom: 1rem;
+
+  @media ($tablet) {
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.contact-form-body {
+  max-width: 62rem;
+  margin: 0 auto 1rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+
+  label {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+  select,
+  textarea {
+    width: 100%;
+    min-height: 4rem;
+    padding: 0.5rem;
+    border: 0.2rem solid $black;
+    border-radius: 0.4rem;
+    font-family: $sans;
+    font-size: inherit;
+  }
+
+  textarea {
+    min-height: 8rem;
+  }
+
+  .validation-message {
+    display: none;
+  }
+
+  &.has-error {
+
+    label {
+      color: $red !important;
+    }
+
+    input, select, textarea {
+      border-color: $red !important;
+    }
+
+    .validation-message {
+      display: block;
+      color: $red;
+      font-size: 1.2rem;
+    }
+  }
+
+  [type="submit"] {
+    display: inline-block;
+    width: 100%;
+    padding: 1.3rem;
+    border-radius: 0.4rem;
+    border: 0;
+    background: $navy;
+    color: $white;
+    font-size: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover,
+    &:focus {
+      background: $blue;
+    }
+  }
+}
+
+.contact-form-success {
+  padding: 2rem;
+  text-align: center;
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
