@@ -144,7 +144,7 @@
             </div>
             <h2 class="email-color">Email address</h2>
             <div class="info-content">
-              <p><a href="mailto:">{{ user.email }}</a></p>
+              <p><a :href="`mailto:${user.email}`">{{ user.email }}</a></p>
             </div>
           </li>
           <li class="user-info-block" :class="{ 'is-active': (activeInfoTab === 'phone') }">
